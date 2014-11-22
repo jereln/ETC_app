@@ -13,6 +13,9 @@ gem 'bourbon'
 gem 'neat'
 gem 'bitters'
 gem 'refills'
+gem 'tzinfo-data'
+gem 'ruby-odbc'
+gem 'activerecord-sqlserver-adapter'
 gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'byebug'
@@ -20,4 +23,3 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'spring'
 end
-

@@ -10,8 +10,13 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+  adapter: sqlserver
+  database: ETCCR
+  dsn: ETCCR
+  mode: odbc
+  username: kendra
+  password: 
+  encoding: utf8
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
