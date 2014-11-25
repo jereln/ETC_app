@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20141122192052) do
 
   create_table "sysdiagrams", primary_key: "diagram_id", force: true do |t|
     t.string  "name",         limit: 128, null: false
@@ -225,43 +225,52 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "tblPerson", primary_key: "PersonID", force: true do |t|
-    t.string   "FirstName",             limit: 20
-    t.string   "LastName",              limit: 20
-    t.string   "FullName",              limit: 41
-    t.string   "FullNameRev",           limit: 42
-    t.string   "Gender",                limit: 1
+    t.string   "FirstName",              limit: 20
+    t.string   "LastName",               limit: 20
+    t.string   "FullName",               limit: 41
+    t.string   "FullNameRev",            limit: 42
+    t.string   "Gender",                 limit: 1
     t.datetime "BirthDate"
-    t.string   "Address",               limit: 50
-    t.string   "City",                  limit: 20
-    t.string   "State",                 limit: 2
-    t.string   "ZipCode",               limit: 15
-    t.boolean  "AddressUsePrimary",                 default: false, null: false
-    t.string   "HomePhone",             limit: 20
-    t.boolean  "HomePhoneUsePrimary",               default: false, null: false
-    t.string   "WorkPhone",             limit: 20
-    t.string   "CellPhone",             limit: 20
-    t.string   "Email",                 limit: 100
-    t.boolean  "WantPromoEmail",                    default: true,  null: false
-    t.boolean  "AdultEmailList",                    default: true,  null: false
-    t.boolean  "JuniorEmailList",                   default: false, null: false
+    t.string   "Address",                limit: 50
+    t.string   "City",                   limit: 20
+    t.string   "State",                  limit: 2
+    t.string   "ZipCode",                limit: 15
+    t.boolean  "AddressUsePrimary",                  default: false, null: false
+    t.string   "HomePhone",              limit: 20
+    t.boolean  "HomePhoneUsePrimary",                default: false, null: false
+    t.string   "WorkPhone",              limit: 20
+    t.string   "CellPhone",              limit: 20
+    t.string   "Email",                  limit: 100
+    t.boolean  "WantPromoEmail",                     default: true,  null: false
+    t.boolean  "AdultEmailList",                     default: true,  null: false
+    t.boolean  "JuniorEmailList",                    default: false, null: false
     t.integer  "AbilityID_UTSA"
     t.integer  "AbilityID_ETC"
     t.integer  "AbilityID_Self"
-    t.string   "LoginID",               limit: 30
-    t.binary   "LoginPassword",         limit: 32
-    t.string   "SecurityGroup",         limit: 10
-    t.boolean  "DoNotShowReservations",             default: false, null: false
+    t.string   "LoginID",                limit: 30
+    t.binary   "LoginPassword",          limit: 32
+    t.string   "SecurityGroup",          limit: 10
+    t.boolean  "DoNotShowReservations",              default: false, null: false
     t.decimal  "RateHourly"
     t.decimal  "RateHalfHour"
     t.decimal  "RateExtraStudent"
-    t.boolean  "IsActive",                          default: true,  null: false
+    t.boolean  "IsActive",                           default: true,  null: false
     t.decimal  "PrePaidBalance"
     t.integer  "PersonID_UsualPayer"
     t.text     "Notes"
-    t.datetime "CreatedAt",                                         null: false
-    t.string   "CreatedBy",             limit: 30
+    t.datetime "CreatedAt",                                          null: false
+    t.string   "CreatedBy",              limit: 30
     t.datetime "ChangedAt"
-    t.string   "ChangedBy",             limit: 30
+    t.string   "ChangedBy",              limit: 30
+    t.string   "encrypted_password",                 default: "",    null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                      default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
 
   create_table "tblPersonNote", primary_key: "NoteID", force: true do |t|
@@ -552,5 +561,23 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "ChangedAt"
     t.string   "ChangedBy",   limit: 30
   end
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
