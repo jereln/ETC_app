@@ -1,6 +1,7 @@
 <h1>Eastside Tennis Center</h1>
-<% if person_signed_in? %>
-  <p>Signed in as <%= current_person.email %></p>
+  <p>Signed in as <%= current_person.FirstName %></p>
   <p><%= link_to 'Sign Out', destroy_person_session_path, method: :delete %></p>
-<% end %>
-<p>Hello</p>
+
+  <ul>
+    <li><%= link_to 'Edit Your Account', edit_person_registration_path %></li>
+  </ul>
