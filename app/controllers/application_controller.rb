@@ -39,8 +39,10 @@ class ApplicationController < ActionController::Base
                    :city,
                    :state,
                    :zip_code,
+                   :home_phone,
+                   :work_phone,
+                   :cell_phone,
                    :password,
-                   :password_confirmation,
                    :current_password)
     end
   end

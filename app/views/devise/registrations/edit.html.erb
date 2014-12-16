@@ -1,82 +1,101 @@
 <div class="form-group list-group list-group-item content">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <h2>Edit Your Account</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
     <div class='row'>
       <fieldset class='form-group col-md-6'>
         <%= f.label 'First Name' %><br />
-        <%= f.text_field :first_name, autofocus: true %>
+        <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
       </fieldset>
 
       <fieldset class='form-group col-md-6'>
+        <%= f.label 'Last Name' %><br />
+        <%= f.text_field :last_name, autofocus: true, class: 'form-control' %>
+      </fieldset>
+    </div>
+
+    <div class='row'>
+      <fieldset class='form-group col-md-8'>
         <%= f.label :address %><br />
-        <%= f.text_field :address, autofocus: true %>
+        <%= f.text_field :address, autofocus: true, class: 'form-control' %>
       </fieldset>
     </div>
 
     <div class='row'>
       <fieldset class='form-group col-md-6'>
-        <%= f.label 'Last Name' %><br />
-        <%= f.text_field :last_name, autofocus: true %>
+        <%= f.label :city %><br />
+        <%= f.text_field :city, autofocus: true, class: 'form-control' %>
       </fieldset>
 
-      <fieldset class='form-group col-md-6'>
-        <%= f.label :city %><br />
-        <%= f.text_field :city, autofocus: true %>
+      <fieldset class='form-group col-md-3'>
+        <%= f.label :state %><br />
+        <%= f.text_field :state, autofocus: true, class: 'form-control' %>
+      </fieldset>
+
+      <fieldset class='form-group col-md-3'>
+        <%= f.label 'ZIP Code' %><br />
+        <%= f.text_field :zip_code, autofocus: true, class: 'form-control' %>
       </fieldset>
     </div>
 
     <div class='row'>
       <fieldset class='form-group col-md-6'>
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
-      </fieldset>
-
-      <fieldset class='form-group col-md-6'>
-        <%= f.label :state %><br />
-        <%= f.text_field :state, autofocus: true %>
+        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
       </fieldset>
     </div>
 
     <div class='row'>
-      <fieldset class='form-group col-md-6'>
-        <%= f.label :gender %><br />
-        <%= f.radio_button :gender, 'M' %> Male
-        <%= f.radio_button :gender, 'F' %> Female
+      <fieldset class='form-group col-md-4'>
+        <%= f.label :home_phone %><br />
+        <%= f.text_field :home_phone, autofocus: true, class: 'form-control' %>
       </fieldset>
 
-      <fieldset class='form-group col-md-6'>
-        <%= f.label 'ZIP Code' %><br />
-        <%= f.text_field :zip_code, autofocus: true %>
+      <fieldset class='form-group col-md-4'>
+        <%= f.label :work_phone %><br />
+        <%= f.text_field :work_phone, autofocus: true, class: 'form-control' %>
+      </fieldset>
+
+      <fieldset class='form-group col-md-4'>
+        <%= f.label :cell_phone %><br />
+        <%= f.text_field :cell_phone, autofocus: true, class: 'form-control' %>
+      </fieldset>
+    </div>
+
+    <div class='row'>
+      <fieldset class='form-group col-md-4'>
+        <%= f.label :ability_id_usta,'USTA Rating' %><br />
+        <%= f.collection_select :ability_id_usta, Ability.where(is_adult: :true), :id, :description, autofocus: true, class: 'form-control' %>
+      </fieldset>
+
+      <fieldset class='form-group col-md-4'>
+        <%= f.label :ability_id_self,'Self-Assessed Rating' %><br />
+        <%= f.collection_select :ability_id_self, Ability.all, :id, :description, autofocus: true, class: 'form-control' %>
       </fieldset>
     </div>
 
     <div class='row'>
       <fieldset class='form-group col-md-6'>
         <%= f.label 'Birthdate' %><br />
-        <%= f.text_field :birthdate, autofocus: true %>
+        <%= f.text_field :birthdate, autofocus: true, class: 'form-control' %>
       </fieldset>
 
       <fieldset class='form-group col-md-6'>
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.label :gender %><br />
+        <%= f.radio_button :gender, 'M' %> Male
+        <%= f.radio_button :gender, 'F' %> Female
       </fieldset>
     </div>
 
-    <div class='row'>
-      <fieldset class='form-group col-md-6'>
-      </fieldset>
+    <fieldset class='form-group'>
+      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+    </fieldset>
 
-      <fieldset class='form-group col-md-6'>
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </fieldset>
-
-    </div>
     <fieldset class='form-group'>
       <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "off" %>
+      <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
     </fieldset>
 
       <div class="actions">
