@@ -5,7 +5,7 @@ class Person < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 	self.table_name = 'tblPerson'
 
-	belongs_to :abilities
+	belongs_to :ability
 
 	alias_attribute :email, :Email
 	alias_attribute :first_name, :FirstName
@@ -16,4 +16,9 @@ class Person < ActiveRecord::Base
 	alias_attribute :city, :City
 	alias_attribute :state, :State
 	alias_attribute :zip_code, :ZipCode
+  alias_attribute :home_phone, :HomePhone
+  alias_attribute :work_phone, :WorkPhone
+  alias_attribute :cell_phone, :CellPhone
+  alias_attribute :ability_id_usta, :AbilityID_UTSA
+  alias_attribute :ability_id_self, :AbilityID_Self
 end
