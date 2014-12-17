@@ -240,11 +240,12 @@ ActiveRecord::Schema.define(version: 20141122192052) do
     t.boolean  "HomePhoneUsePrimary",                default: false, null: false
     t.string   "WorkPhone",              limit: 20
     t.string   "CellPhone",              limit: 20
+    t.string   "BestContact",            limit: 4
     t.string   "Email",                  limit: 100
     t.boolean  "WantPromoEmail",                     default: true,  null: false
     t.boolean  "AdultEmailList",                     default: true,  null: false
     t.boolean  "JuniorEmailList",                    default: false, null: false
-    t.integer  "AbilityID_UTSA"
+    t.integer  "AbilityID_USTA"
     t.integer  "AbilityID_ETC"
     t.integer  "AbilityID_Self"
     t.string   "LoginID",                limit: 30

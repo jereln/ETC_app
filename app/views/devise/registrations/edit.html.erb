@@ -65,13 +65,20 @@
 
     <div class='row'>
       <fieldset class='form-group col-md-4'>
+        <%= f.label :best_contact %><br />
+        <%= f.select :cell_phone, ['Home', 'Work', 'Cell'] %>
+      </fieldset>
+    </div>
+
+    <div class='row'>
+      <fieldset class='form-group col-md-4'>
         <%= f.label :ability_id_usta,'USTA Rating' %><br />
-        <%= f.collection_select :ability_id_usta, Ability.where(is_adult: :true), :id, :description, autofocus: true, class: 'form-control' %>
+        <%= f.collection_select :ability_id_usta, Ability.where(is_adult: :true), :id, :description, include_blank: true, autofocus: true, class: 'form-control' %>
       </fieldset>
 
       <fieldset class='form-group col-md-4'>
         <%= f.label :ability_id_self,'Self-Assessed Rating' %><br />
-        <%= f.collection_select :ability_id_self, Ability.all, :id, :description, autofocus: true, class: 'form-control' %>
+        <%= f.collection_select :ability_id_self, Ability.all, :id, :description, include_blank: true, autofocus: true, class: 'form-control' %>
       </fieldset>
     </div>
 

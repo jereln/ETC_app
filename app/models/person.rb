@@ -19,6 +19,6 @@ class Person < ActiveRecord::Base
   alias_attribute :home_phone, :HomePhone
   alias_attribute :work_phone, :WorkPhone
   alias_attribute :cell_phone, :CellPhone
-  alias_attribute :ability_id_usta, :AbilityID_UTSA
+  alias_attribute :ability_id_usta, :AbilityID_USTA
   alias_attribute :ability_id_self, :AbilityID_Self
 end
