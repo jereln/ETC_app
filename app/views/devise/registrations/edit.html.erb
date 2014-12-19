@@ -6,7 +6,7 @@
     <div class='row'>
       <fieldset class='form-group col-md-6'>
         <%= f.label 'First Name' %><br />
-        <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
+        <%= f.text_field :first_name, autofocus: true, class: 'form-control ' %>
       </fieldset>
 
       <fieldset class='form-group col-md-6'>
@@ -49,24 +49,24 @@
     <div class='row'>
       <fieldset class='form-group col-md-4'>
         <%= f.label :home_phone %><br />
-        <%= f.text_field :home_phone, autofocus: true, class: 'form-control' %>
+        <%= f.text_field :home_phone, autofocus: true, class: 'form-control', id: 'HomePhoneTextBox', onchange: 'fSetBestContact()' %>
       </fieldset>
 
       <fieldset class='form-group col-md-4'>
         <%= f.label :work_phone %><br />
-        <%= f.text_field :work_phone, autofocus: true, class: 'form-control' %>
+        <%= f.text_field :work_phone, autofocus: true, class: 'form-control', id: 'WorkPhoneTextBox', onchange: 'fSetBestContact()' %>
       </fieldset>
 
       <fieldset class='form-group col-md-4'>
         <%= f.label :cell_phone %><br />
-        <%= f.text_field :cell_phone, autofocus: true, class: 'form-control' %>
+        <%= f.text_field :cell_phone, autofocus: true, class: 'form-control', id: 'CellPhoneTextBox', onchange: 'fSetBestContact()' %>
       </fieldset>
     </div>
 
     <div class='row'>
       <fieldset class='form-group col-md-4'>
         <%= f.label :best_contact %><br />
-        <%= f.select :cell_phone, ['Home', 'Work', 'Cell'] %>
+        <%= f.select :cell_phone, ['Home', 'Work', 'Cell'], {}, onchange: 'fCheckBestContact()' %>
       </fieldset>
     </div>
 
