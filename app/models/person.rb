@@ -21,4 +21,5 @@ class Person < ActiveRecord::Base
   alias_attribute :cell_phone, :CellPhone
   alias_attribute :ability_id_usta, :AbilityID_USTA
   alias_attribute :ability_id_self, :AbilityID_Self
+  alias_attribute :best_contact, :BestContact
 end
