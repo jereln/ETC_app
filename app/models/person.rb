@@ -7,6 +7,12 @@ class Person < ActiveRecord::Base
 
 	belongs_to :ability
 
+  has_many :reservations
+  has_many :schedules, through: :reservations
+
+  has_many :relationships
+  has_many :families, through: :relationships
+
 	alias_attribute :email, :Email
 	alias_attribute :first_name, :FirstName
 	alias_attribute :last_name, :LastName

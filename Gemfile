@@ -12,6 +12,7 @@ gem 'devise'
 gem 'tzinfo-data'
 gem 'ruby-odbc'
 gem 'activerecord-sqlserver-adapter'
+gem 'jquery-ui-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'byebug'

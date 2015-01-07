@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :people
+  resources :reservations
+
+  devise_for :people, controllers: { registrations: 'people/registrations' }
   devise_scope :person do
   	get 'sign_in', to: 'devise/sessions#new'
   end

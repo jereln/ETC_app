@@ -12,6 +12,7 @@
  *
 
  *= require_tree .
+ *= require jquery-ui/datepicker
  *= require_self
  */
 
@@ -25,3 +26,11 @@
     text-align: center;
     margin: auto;
 }
+ table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+ }
+
+ #error_explanation {
+  color: red;
+ }
