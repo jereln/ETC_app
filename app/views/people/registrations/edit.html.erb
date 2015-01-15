@@ -1,11 +1,22 @@
 <div class="form-group list-group list-group-item content">
   <h2>Edit Your Account</h2>
-  <h1>Relationship: <%= @relationship.family_id %></h1>
-  <h1>Family: <%= @family.family_name %></h1>
-  <h1>Family Members:</h1>
-<%= select :person, :PersonID, @family_members.collect { |p| [p.person.FullName, p.person.PersonID] } %>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= devise_error_messages! %>
+  <%= devise_error_messages! %>
+  <div class='row'>
+    <fieldset class='form-group col-md-6'>
+      <label>Family Members:</label><br>
+      <%= select :person, :PersonID, @family_members.collect { |p| [p.person.FullName, p.person.PersonID] }, {}, onchange: 'setFamilyMember()' %>
+    </fieldset>
+  </div>
+  <% if @relationship.IsPrimary = true %>
+  <h3>Edit a family member</h3>
+    <% @family_members.each do |member| %>
+    <%= link_to member.person.FullName, edit_person_registration_path(member.person) unless member.person.id == @current_person.id %><br>
+    <% end %>
+    <%= link_to "Add a family member" %>
+  <% end %>
+  
+  <%= form_for(@person, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    
     <div class='row'>
       <fieldset class='form-group col-md-6'>
         <%= f.label 'First Name' %><br />
@@ -87,8 +98,8 @@
 
     <div class='row'>
       <fieldset class='form-group col-md-6'>
-        <%= f.label 'Birthdate' %><br />
-        <%= f.text_field :birthdate, autofocus: true, class: 'form-control' %>
+        <%= f.label 'Birthdate' %> <i>MM/DD/YYYY</i> <br />
+        <%= f.date_field :birthdate, autofocus: true, class: 'form-control' %>
       </fieldset>
 
       <fieldset class='form-group col-md-6'>
@@ -99,7 +110,7 @@
     </div>
 
     <fieldset class='form-group'>
-      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.label 'New Password' %> <i>(leave blank if you don't want to change it)</i><br />
       <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
     </fieldset>
 
@@ -109,13 +120,9 @@
     </fieldset>
 
       <div class="actions">
-        <%= f.submit "Update" %>
+        <%= f.submit "Save" %>
       </div>
   <% end %>
 
-  <h3>Cancel my account</h3>
-
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-  <%= link_to "Back", :back %>
+  <br><%= link_to "Back", :back %>
 </div>

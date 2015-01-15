@@ -45,7 +45,8 @@ function fSetBestContact() {
             }
         }
     }
-}
+};
+
 function fCheckBestContact() {
     // Get values from the three text boxes and assign to variables
     var HomePhone = document.getElementById('HomePhoneTextBox').value;
@@ -72,4 +73,9 @@ function fCheckBestContact() {
         alert('No cell phone number has been entered.');
         document.getElementById('CellPhoneTextBox').focus();
     }
-}
+};
+
+function setFamilyMember() {
+    var familyMember = document.getElementById('person_PersonID').value
+    alert(familyMember)
+};
