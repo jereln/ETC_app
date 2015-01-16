@@ -1,21 +1,5 @@
 <div class="form-group list-group list-group-item content">
-  <h2>Edit Your Account</h2>
-  <%= devise_error_messages! %>
-  <div class='row'>
-    <fieldset class='form-group col-md-6'>
-      <label>Family Members:</label><br>
-      <%= select :person, :PersonID, @family_members.collect { |p| [p.person.FullName, p.person.PersonID] }, {}, onchange: 'setFamilyMember()' %>
-    </fieldset>
-  </div>
-  <% if @relationship.IsPrimary = true %>
-  <h3>Edit a family member</h3>
-    <% @family_members.each do |member| %>
-      <%= link_to member.person.FullName, edit_person_registration_path(member.person) unless member.person.id == @current_person.id %><br>
-    <% end %>
-    <%= link_to "Add a family member" %>
-  <% end %>
-  
-  <%= form_for(@person, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= form_for(@person) do |f| %>
     
     <div class='row'>
       <fieldset class='form-group col-md-6'>
